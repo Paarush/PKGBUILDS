@@ -14,7 +14,7 @@ pkgdesc="A project scheduling application featuring gantt chart, resource manage
 arch=('i686' 'x86_64')
 url="https://www.ganttproject.biz/"
 license=("GPL")
-depends=('jre11-openjdk' 'java11-openjfx' 'hicolor-icon-theme')
+depends=('java-environment' 'java-openjfx-bin' 'hicolor-icon-theme')
 makedepends=('unzip')
 source=("https://dl.ganttproject.biz/$pkgname-$pkgver/$pkgname-$pkgver.zip"
 	"ganttproject.desktop")
@@ -22,7 +22,7 @@ source=("https://dl.ganttproject.biz/$pkgname-$pkgver/$pkgname-$pkgver.zip"
 prepare() {
 	# add JavaFX path to startup script
 	# (credits to ulyssesrr for the new fix)
-	sed -i '/^BOOT_CLASS/ aJFX_ARGS="--module-path \/usr\/lib\/jvm\/java-11-openjfx\/lib\/ --add-modules=ALL-MODULE-PATH"' $srcdir/ganttproject
+	sed -i '/^BOOT_CLASS/ aJFX_ARGS="--module-path \/usr\/lib\/jvm\/java-22-openjfx\/lib\/ --add-modules=ALL-MODULE-PATH"' $srcdir/ganttproject
 	sed -i -r '/Xmx[0-9]+m/ s/\$JAVA_EXPORTS/$JFX_ARGS $JAVA_EXPORTS/' $srcdir/ganttproject
 }
 
