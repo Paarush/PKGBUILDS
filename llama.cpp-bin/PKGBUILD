@@ -1,0 +1,42 @@
+# Maintainer: robertfoster
+
+_name=llama.cpp
+pkgbase="${_name}-bin"
+pkgname="${pkgbase}"
+pkgver=b4406
+pkgrel=1
+pkgdesc="Port of Facebook's LLaMA model in C/C++"
+arch=('x86_64')
+url="https://github.com/ggerganov/llama.cpp"
+license=("MIT")
+depends=()
+conflicts=("${_name}")
+provides=("${_name}")
+source=("${_name}::https://github.com/ggerganov/llama.cpp/releases/download/${pkgver}/llama-${pkgver}-bin-ubuntu-x64.zip"
+  "kompute::git+https://github.com/nomic-ai/kompute.git"
+  "${_name}.conf"
+  "${_name}.service"
+)
+
+package() {
+  cd "${srcdir}"
+  cd "build/bin"
+  for i in *; do
+    install -Dm755 "${i}" \
+      "${pkgdir}/usr/bin/${_name}-${i}"
+  done
+
+  # systemd
+  install -D -m644 "${srcdir}/${_name}.conf" \
+    "${pkgdir}/etc/conf.d/${_name}"
+  install -D -m644 "${srcdir}/${_name}.service" \
+    -t "${pkgdir}/usr/lib/systemd/system"
+
+  # it conflicts with whisper.cpp
+  rm -f "${pkgdir}/usr/include/ggml.h"
+}
+
+sha256sums=('SKIP'
+  'SKIP'
+  '53fa70cfe40cb8a3ca432590e4f76561df0f129a31b121c9b4b34af0da7c4d87'
+  'c1f25cb01825d951b76fb4747f5bd49a85b9bee8f605b1f43c5e6f12156cf49d')
