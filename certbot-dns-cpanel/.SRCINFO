@@ -1,0 +1,14 @@
+pkgbase = python-certbot-dns-cpanel
+	pkgdesc = Cpanel plugin for Certbot
+	pkgver = 0.4.0
+	pkgrel = 1
+	url = https://github.com/badjware/certbot-dns-cpanel
+	arch = any
+	makedepends = git
+	makedepends = python-setuptools
+	depends = certbot
+	depends = python-zope-interface
+	source = git+https://github.com/badjware/certbot-dns-cpanel.git
+	b2sums = SKIP
+
+pkgname = python-certbot-dns-cpanel
