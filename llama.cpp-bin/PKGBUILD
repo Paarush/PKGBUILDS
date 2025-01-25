@@ -3,7 +3,7 @@
 _name=llama.cpp
 pkgbase="${_name}-bin"
 pkgname="${pkgbase}"
-pkgver=b4546
+pkgver=b4549
 pkgrel=1
 pkgdesc="Port of Facebook's LLaMA model in C/C++"
 arch=('x86_64')

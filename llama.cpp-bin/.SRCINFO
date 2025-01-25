@@ -1,13 +1,13 @@
 pkgbase = llama.cpp-bin
 	pkgdesc = Port of Facebook's LLaMA model in C/C++
-	pkgver = b4546
+	pkgver = b4549
 	pkgrel = 1
 	url = https://github.com/ggerganov/llama.cpp
 	arch = x86_64
 	license = MIT
 	provides = llama.cpp
 	conflicts = llama.cpp
-	source = llama.cpp::https://github.com/ggerganov/llama.cpp/releases/download/b4546/llama-b4546-bin-ubuntu-x64.zip
+	source = llama.cpp::https://github.com/ggerganov/llama.cpp/releases/download/b4549/llama-b4549-bin-ubuntu-x64.zip
 	source = kompute::git+https://github.com/nomic-ai/kompute.git
 	source = llama.cpp.conf
 	source = llama.cpp.service
